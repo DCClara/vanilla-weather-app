@@ -23,9 +23,9 @@ function formatDate(timestamp) {
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDate();
+  let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  return day[day]; ////bug here, work on this
+  return days[day]; ////bug here, work on this
 }
 
 function displayForecast(response) {
