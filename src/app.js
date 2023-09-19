@@ -47,7 +47,7 @@ function displayForecast(response) {
                     forecastDay.condition.icon
                   }.png"
                   alt=""
-                  width="42"
+                  width="45"
                 />
                 <div class="weather-forecast-temp">
                   <span class="weather-forecast-temp-max"> ${Math.round(
@@ -110,4 +110,11 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Deerfield Beach");
+function getCurrentlocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentlocation);
+
+search("Miami");
