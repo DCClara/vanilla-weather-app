@@ -29,7 +29,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
@@ -47,12 +46,12 @@ function displayForecast(response) {
                     forecastDay.condition.icon
                   }.png"
                   alt=""
-                  width="45"
+                  width="60"
                 />
                 <div class="weather-forecast-temp">
                   <span class="weather-forecast-temp-max"> ${Math.round(
                     forecastDay.temperature.maximum
-                  )}° </span>
+                  )}° | </span>
                   <span class="weather-forecast-temp-min"> ${Math.round(
                     forecastDay.temperature.minimum
                   )}° </span>
@@ -109,12 +108,5 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-function getCurrentlocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentlocation);
 
 search("Miami");
